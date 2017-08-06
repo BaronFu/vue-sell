@@ -1,2 +1,2 @@
 # vue-sell
-Vue.js2.0高仿饿了么外卖App商家模块
+Vue.js2.0 High imitation elem takeaway App merchant module.
