@@ -17,7 +17,7 @@
           <ul>
             <li @click="selectFood(food, $event)" v-for="food in item.foods" class="food-item border-1px">
               <div class="icon">
-                <img width="57" height="57" :src="food.icon">
+                <img width="57" height="57" v-lazy="food.icon">
               </div>
               <div class="content">
                 <h2 class="name">{{food.name}}</h2>
@@ -42,6 +42,9 @@
     <shopcart ref="shopcart" :select-foods="selectFoods" :delivery-price="seller.deliveryPrice"
               :min-price="seller.minPrice"></shopcart>
     <food @cartadd="_drop" :food="selectedFood" ref="food"></food>
+    <div class="loading-wrapper" v-show="!goods.length">
+      <loading></loading>
+    </div>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -49,6 +52,7 @@
   import shopcart from 'components/shopcart/shopcart.vue';
   import cartcontrol from 'components/cartcontrol/cartcontrol.vue';
   import food from 'components/food/food.vue';
+  import loading from 'base/loading/loading';
 
   const ERR_OK = 0;
 
@@ -152,7 +156,8 @@
     components: {
       shopcart,
       cartcontrol,
-      food
+      food,
+      loading
     }
   };
 </script>
@@ -264,4 +269,9 @@
             position: absolute
             right: 0
             bottom: 12px
+    .loading-wrapper
+      position: absolute
+      width: 100%
+      top: 50%
+      transition: translateY(-50%)
 </style>
