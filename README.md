@@ -25,3 +25,4 @@ npm test
 
 ```
 
+![饿了么演示二维码]（http://ot69d3edf.bkt.clouddn.com/%E9%A5%BF%E4%BA%86%E4%B9%88%E4%BA%8C%E7%BB%B4%E7%A0%81.png）
