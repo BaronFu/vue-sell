@@ -3,7 +3,7 @@
     <div class="menu-wrapper" ref="menuwrapper">
       <ul>
         <li v-for="(item, $index) in goods" class="menu-item" :class="{'current':currentIndex===$index}"
-            @click="selectMenu($index, $event)">
+            @click="selectMenu($index, $event)" :key="$index">
           <span class="text border-1px">
             <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
           </span>
@@ -12,10 +12,10 @@
     </div>
     <div class="foods-wrapper" ref="foodswrapper">
       <ul>
-        <li v-for="item in goods" class="food-list food-list-hook">
+        <li v-for="(item, $index) in goods" class="food-list food-list-hook" :key="$index">
           <h1 class="title">{{item.name}}</h1>
           <ul>
-            <li @click="selectFood(food, $event)" v-for="food in item.foods" class="food-item border-1px">
+            <li @click="selectFood(food, $event)" v-for="(food, $i) in item.foods" class="food-item border-1px" :key="$i">
               <div class="icon">
                 <img width="57" height="57" v-lazy="food.icon">
               </div>

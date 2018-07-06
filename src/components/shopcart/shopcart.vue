@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="ball-container">
-        <div v-for="ball in balls">
+        <div v-for="(ball, $index) in balls" :key="$index">
           <!--用了两种方式的动画，css和js钩子-->
           <transition name="drop" @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop">
             <!--外层动画-->
@@ -38,7 +38,7 @@
           </div>
           <div class="list-content" ref="listContent">
             <ul>
-              <li class="shopcart-food border-1px" v-for="food in selectFoods">
+              <li class="shopcart-food border-1px" v-for="(food, $index) in selectFoods" :key="$index">
                 <span class="name">{{food.name}}</span>
                 <div class="price">
                   <span>¥{{food.price * food.count}}</span>
