@@ -1,10 +1,10 @@
-var path = require('path')
-var utils = require('./utils')
-var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
+var path = require('path');
+var utils = require('./utils');
+var config = require('../config');
+var vueLoaderConfig = require('./vue-loader.conf');
 
 function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
@@ -25,6 +25,7 @@ module.exports = {
       '@': resolve('src'),
       'common': path.resolve(__dirname, '../src/common'),
       'components': path.resolve(__dirname, '../src/components'),
+      'base': path.resolve(__dirname, '../src/base')
     }
   },
   module: {
@@ -74,4 +75,4 @@ module.exports = {
       }
     ]
   }
-}
+};
